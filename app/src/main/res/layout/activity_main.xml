@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/bgutama">
+
+
+    <ImageView
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imageView"
+        android:layout_width="270dp"
+        android:layout_height="270dp"
+        app:srcCompat="@drawable/tumpeng" />
+    <TextView
+        android:layout_marginBottom="20dp"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/txt"
+        android:layout_below="@id/imageView"
+        android:textSize="48dp"
+        android:fontFamily="@font/fredoka"
+        android:text="Nggeledrek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:fontFamily="@font/mons"
+        android:textSize="20dp"
+        android:hint="Your Email"
+        android:textAlignment="center"
+        android:id="@+id/edit1"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/bglogin"
+        android:layout_below="@id/txt"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <EditText
+        android:fontFamily="@font/mons"
+        android:textSize="20dp"
+        android:hint="Password"
+        android:textAlignment="center"
+        android:id="@+id/edit2"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/bglogin"
+        android:layout_below="@id/edit1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+    <Button
+        android:id="@+id/btn"
+        android:textSize="20dp"
+        android:fontFamily="@font/mons"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_below="@id/edit2"
+        android:textColor="@android:color/white"
+        android:background="@drawable/btn_masuk"
+        android:text="Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_marginTop="56dp"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="20dp"
+        android:fontFamily="@font/mons"
+        android:text="Belum Punya Akun"
+        android:layout_below="@id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>
