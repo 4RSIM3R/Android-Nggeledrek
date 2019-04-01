@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'User.dart';
 import 'dart:async';
 void main() => runApp(Daftar());
 
@@ -144,16 +147,19 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         ),
                         new InkWell(
-                          // onTap: () => {
-                          //   FirebaseAuth.instance.createUserWithEmailAndPassword(
-                          //     email: _email,
-                          //     password: _password
-                          //   ).then((signedInUser){
-
-                          //   }).catchError((e) {
-                          //     print(e);
-                          //   })
-                          // },
+                          onTap: () => {
+                            FirebaseAuth.instance.createUserWithEmailAndPassword(
+                              email: _email,
+                              password: _password
+                            )
+                            .then((signedInUser){
+                              //Pemodelan data di sini yahhh jadi kita panggil function dari sini
+                              User().storeNewUser(signedInUser, context);
+                            })
+                            .catchError((e){
+                              print("Ada Error Di : $e");
+                            })
+                          },
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             height: 50.0,

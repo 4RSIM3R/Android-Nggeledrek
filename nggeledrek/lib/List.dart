@@ -1,0 +1,158 @@
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'detail.dart';
+import 'user_profile.dart' as Guide;
+import 'Home.dart';
+void main() => list();
+
+class list extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      
+      body: Stack(
+        children: <Widget>[
+          StreamBuilder(
+            stream: Firestore.instance.collection("Destinasi").snapshots(),
+            builder: (context,snapshot){
+              //Loading Indikatornya Disini
+              if (!snapshot.hasData) return Center( child: CircularProgressIndicator(),);
+              //Kirim Data nya disini
+              return new Paket(document: snapshot.data.documents,);
+            },
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class Paket extends StatelessWidget{
+  //tangkap disini dan namain documetn
+  Paket({this.document});
+  final List<DocumentSnapshot> document;
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: document.length,
+      itemBuilder: (BuildContext context, int i){
+        String Nama = document[i].data['Nama'];
+        String Tujuan1 = document[i].data['Tujuan1'];
+        String Tujuan2 = document[i].data['Tujuan2'];
+        String Tujuan3 = document[i].data['Tujuan3'];
+        String Tujuan4 = document[i].data['Tujuan4'];
+        String Harga = document[i].data['Harga'];
+        String Gambar1 = document[i].data['Gambar1'];
+        String Gambar2 = document[i].data['Gambar2'];
+        String Gambar3 = document[i].data['Gambar3'];
+        String Gambar4 = document[i].data['Gambar4'];
+        String Gambar5 = document[i].data['Gambar5'];
+        String Hotel = document[i].data['Hotel'];
+        String Deskripsi = document[i].data['Deskripsi'];
+        String Lokasi = document[i].data['Lokasi'];
+        String CodeDest = document[i].data['CodeDest'];
+        return GestureDetector(
+          onDoubleTap: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => Home()
+              ));
+            },
+          child: Column(
+          children: <Widget>[
+                  SizedBox(height: 20.0,),
+                  Stack(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                          child: Stack(
+                            children: <Widget>[
+                              Container(
+                                height: 300.0,
+                                width: 390.0,
+                                child: InkWell(
+                                  onTap: () => {
+                                    Navigator.push(context, MaterialPageRoute(
+                                      //Put Data Kirim ke detail sini Yahhh
+                                      builder: (context) => DetailApp(
+                                        Nama: Nama,
+                                        Gambar1 :Gambar1,
+                                        Gambar2: Gambar2,
+                                        Gambar3: Gambar3,
+                                        Tujuan1: Tujuan1,
+                                        Tujuan2: Tujuan2,
+                                        Tujuan3: Tujuan3,
+                                        Tujuan4: Tujuan4,
+                                        Hotel: Hotel,
+                                        Gambar4: Gambar4,
+                                        Harga: Harga,
+                                        Gambar5: Gambar5,
+                                        Deskripsi: Deskripsi,
+                                        Lokasi: 'Banyuwangi',
+                                        CodeDest : CodeDest
+                                      )
+                                    ))
+                                  },
+                                  child : Image.network(
+                                  Gambar1,
+                                  fit: BoxFit.cover,
+                                )
+                                ) ,
+                              ),
+                              Positioned(
+                                  left: 0.0,
+                                  bottom: 0.0,
+                                  width: 390.0,
+                                  height: 100.0,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                            begin: Alignment.bottomCenter,
+                                            end: Alignment.topCenter,
+                                            colors: [Colors.black, Colors.black.withOpacity(0.1)]
+                                        )
+                                    ),
+                                  )
+                              ),
+                              Positioned(
+                                left: 10.0,
+                                right: 30.0,
+                                bottom: 30.0,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Text(
+                                          Nama,
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                              fontSize: 25.0
+                                          ),
+                                        ),
+                                        
+                                        SizedBox(width: 60.0,),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+          ],
+        ),
+        );
+      },
+    );
+  }
+  
+}

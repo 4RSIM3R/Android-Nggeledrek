@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "111665639435",
+    "firebase_url": "https://nggeledrek.firebaseio.com",
+    "project_id": "nggeledrek",
+    "storage_bucket": "nggeledrek.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111665639435:android:5ad41ab2f256fee5",
+        "android_client_info": {
+          "package_name": "com.production.suku.nggeledrek"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111665639435-3p4t4pn0ssomq6naugffg200j19l5bhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb2g8vLc6ygy5Jicwrg1TsC5SYqLSN0Lo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,89 +1,31 @@
 import 'package:flutter/material.dart';
-import 'user_profile.dart';
-import 'List.dart';
-void main() => runApp(DetailApp());
+import 'Dirimu.dart';
+void main() => runApp(Gallery());
+class Gallery extends StatefulWidget {
+  //final String foo;
 
-var detail_text = "Nama Pulau Merah sendiri merujuk pada bukit kecil ditengah laut (tidak jauh dari pantai) yang memiliki tanah berwarna merah. Namun pulau tersebut tidak terlihat merah karena adanya pohon yang menyelimuti nya.";
-
-class DetailApp extends StatefulWidget {
-  final String foo;
-  final String Nama;
-  final String Deskripsi;
-  final String Gambar1;
-  final String Gambar2;
-  final String Gambar3;
-  final String Gambar4;
-  final String Lokasi;
-  final String CodeDest;
-  final String Tujuan1;
-  final String Tujuan2;
-  final String Tujuan3;
-  final String Tujuan4;
-  final String Hotel;
-  final String Gambar5;
-  final String Harga;
-  //Cara Bind data dari yang di kirim dari list
-  const DetailApp({Key key, this.foo, 
-  this.Nama, this.Gambar1, this.Gambar2, 
-  this.Gambar3, this.Deskripsi, this.Lokasi, 
-  this.CodeDest, this.Tujuan1, this.Tujuan2, this.Tujuan3, 
-  this.Tujuan4, this.Hotel, this.Gambar4, this.Gambar5, this.Harga}): super(key: key);
+  //const Gallery({Key key, this.foo}): super(key: key);
 
   @override
-  //Nama Class Dibawahnya
-  Promosi createState() =>  Promosi();
+  _MyStatefulState createState() => _MyStatefulState();
 }
 
-class  Promosi extends State<DetailApp> {
+class _MyStatefulState extends State<Gallery> {
   @override
   Widget build(BuildContext context) {
-      return Scaffold(
-        body: SafeArea(
-          child: GestureDetector(
-            onDoubleTap: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) => list()
-              ));
-            },
-            child: ListView(
-            children: <Widget>[
-              Stack(
-                children: <Widget>[
-                  Padding(
-                     padding: const EdgeInsets.all(8.0),
-                     child: Column(
-                       children: <Widget>[
-                         Padding(
-                           padding: const EdgeInsets.all(10.0),
-                           child: Row(
-                             children: <Widget>[
-                            Text(widget.Nama, style: TextStyle(fontSize: 26.0, fontWeight: FontWeight.bold,),),
-                            SizedBox(width: 75.0,),
-                             ],
-                           ),
-                         ),
-                         SizedBox(height: 16.0,),
-                        Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 12.0),
-                        child: Row(
-                          children: <Widget>[
-                            //Icon(Icons.monetization_on, color: Color(0xff0083b0).withOpacity(0.9), ),
-                            Text("Price : ${widget.Harga}", style: TextStyle(color: Colors.grey, fontSize: 18.0),)
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 16.0,),
-                      Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 15.0),
-                          child: Column(
-                            children: <Widget>[
-                              Text(widget.Deskripsi, style: TextStyle(color: Colors.black87, fontSize: 17.0),),
-                            ],
-                          )
-                      ),
-                      SizedBox(height: 8.0,),
-                      SizedBox(height: 18.0,),
-                      Padding(
+    return GestureDetector(
+      onDoubleTap: (){
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => Dirimu()
+        ));
+      },
+      child:     Scaffold(
+      body: ListView(
+      shrinkWrap: true,
+      children: <Widget>[
+               Column(
+        children: <Widget>[
+          Padding(
                         padding: EdgeInsets.all(0.0),
                         child: Container(
                           height: 200.0,
@@ -97,7 +39,7 @@ class  Promosi extends State<DetailApp> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(12.0),
                                         image: DecorationImage(
-                                            image: NetworkImage(widget.Gambar1),
+                                            image: NetworkImage("https://cdns.klimg.com/newshub.id/news/2016/11/16/106664/511255-jajanan-tradisional-banyuwangi.jpg"),
                                             fit: BoxFit.cover
                                         )
                                     ),
@@ -107,7 +49,7 @@ class  Promosi extends State<DetailApp> {
                                       alignment: Alignment.bottomLeft,
                                       child: Padding(
                                         padding: EdgeInsets.only( left: 15.0, bottom: 15.0 ),
-                                        child: Text(widget.Tujuan1, style: TextStyle(fontSize: 18.0, color: Colors.white),),
+                                        child: Text("Dummy Text", style: TextStyle(fontSize: 18.0, color: Colors.white),),
                                       ),
                                     ),
                                   ),
@@ -121,7 +63,7 @@ class  Promosi extends State<DetailApp> {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12.0),
                                       image: DecorationImage(
-                                          image: NetworkImage(widget.Gambar2),
+                                          image: NetworkImage("https://cdns.klimg.com/newshub.id/news/2016/11/16/106664/511255-jajanan-tradisional-banyuwangi.jpg"),
                                           fit: BoxFit.cover
                                       )
                                     ),
@@ -131,7 +73,7 @@ class  Promosi extends State<DetailApp> {
                                       alignment: Alignment.bottomLeft,
                                       child: Padding(
                                         padding: EdgeInsets.only( left: 10.0, bottom: 15.0 ),
-                                        child: Text(widget.Tujuan2, style: TextStyle(fontSize: 18.0, color: Colors.white),),
+                                        child: Text("Dummy Text", style: TextStyle(fontSize: 18.0, color: Colors.white),),
                                       ),
                                     ),
                                   ),
@@ -144,25 +86,25 @@ class  Promosi extends State<DetailApp> {
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Container(
-                          height: 200.0,
+                          height: 300.0,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12.0),
-                            image: DecorationImage(image: NetworkImage(widget.Gambar4),fit: BoxFit.cover)
+                            image: DecorationImage(image: NetworkImage("https://cdns.klimg.com/newshub.id/news/2016/11/16/106664/511255-jajanan-tradisional-banyuwangi.jpg"),fit: BoxFit.cover)
                           ),
                           child: Align(
                                       alignment: Alignment.bottomLeft,
                                       child: Padding(
                                         padding: EdgeInsets.only( left: 25.0, bottom: 25.0 ),
-                                        child: Text(widget.Tujuan3, style: TextStyle(fontSize: 24.0, color: Colors.white),),
+                                        child: Text("Dummy Text", style: TextStyle(fontSize: 24.0, color: Colors.white),),
                                       ),
                                     )
                         ),
                       ),
-                        Padding(
+                                            Padding(
                         padding: EdgeInsets.all(0.0),
                         child: Container(
-                          height: 200.0,
+                          height: 150.0,
                           child: Row(
                             children: <Widget>[
                               Expanded(
@@ -173,7 +115,7 @@ class  Promosi extends State<DetailApp> {
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(12.0),
                                         image: DecorationImage(
-                                            image: NetworkImage(widget.Gambar5),
+                                            image: NetworkImage("http://cdn2.tstatic.net/travel/foto/bank/images/nasi-tempong_20171027_092153.jpg"),
                                             fit: BoxFit.cover
                                         )
                                     ),
@@ -183,7 +125,7 @@ class  Promosi extends State<DetailApp> {
                                       alignment: Alignment.bottomLeft,
                                       child: Padding(
                                         padding: EdgeInsets.only( left: 7.5, bottom: 15.0 ),
-                                        child: Text(widget.Tujuan4, style: TextStyle(fontSize: 18.0, color: Colors.white),),
+                                        child: Text("Dummy Text", style: TextStyle(fontSize: 18.0, color: Colors.white),),
                                       ),
                                     ),
                                   ),
@@ -197,7 +139,7 @@ class  Promosi extends State<DetailApp> {
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12.0),
                                       image: DecorationImage(
-                                          image: NetworkImage(widget.Gambar3),
+                                          image: NetworkImage("http://cdn2.tstatic.net/travel/foto/bank/images/nasi-tempong_20171027_092153.jpg"),
                                           fit: BoxFit.cover
                                       )
                                     ),
@@ -207,7 +149,7 @@ class  Promosi extends State<DetailApp> {
                                       alignment: Alignment.bottomLeft,
                                       child: Padding(
                                         padding: EdgeInsets.only( left: 15.0, bottom: 15.0 ),
-                                        child: Text(widget.Hotel, style: TextStyle(fontSize: 18.0, color: Colors.white),),
+                                        child: Text("Dummy Text", style: TextStyle(fontSize: 18.0, color: Colors.white),),
                                       ),
                                     ),
                                   ),
@@ -217,26 +159,11 @@ class  Promosi extends State<DetailApp> {
                           ),
                         ),
                       )
-                      ],
-                     ),
-                  )
-                ],
-              )
-            ],
-          ),
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => {
-            Navigator.push(context, MaterialPageRoute(
-              builder: (context) => ProfileApp(
-                Kode: widget.CodeDest,
-              )
-            ))
-          },
-          child: Icon(Icons.keyboard_arrow_right, color: Colors.white,),
+        ],
       ),
-      
-      );
+      ],
+    ),
+    ),
+    );
   }
 }

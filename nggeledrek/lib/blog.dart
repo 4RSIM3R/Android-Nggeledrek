@@ -78,7 +78,7 @@ class _BlogState extends State<Blog> {
                 )
             ),
             Positioned(
-              left: 45.0,
+              left: 30.0,
               bottom: 120.0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,7 +101,7 @@ class _BlogState extends State<Blog> {
             ),
             Positioned(
               bottom: 2.0,
-              left: 175.0,
+              left: 145.0,
               child: GestureDetector(
                   onTap: (){
                     Route route = MaterialPageRoute(builder: (context) => DetailApp());

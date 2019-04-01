@@ -1,87 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-void main () => runApp(Food());
 
-class Food extends StatelessWidget {
-  //Membuat list array Gambar
-  final List<String> gambar = ["food1.jpg", "food2.jpg", "food4.jpg", "food5.jpg"];
+void main() => runApp(Food());
+
+class Food extends StatefulWidget {
+  //final String foo;
+
+  //const Food({Key key, this.foo}): super(key: key);
+
   @override
-  Widget build(BuildContext context) {
-    //durasi animasi
-    timeDilation = 5.0;
-    return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            //Menentukan Posisi dari mana gradient di mulai
-            begin: FractionalOffset.topCenter,
-            colors: [
-              Colors.blue,
-              Colors.blueAccent
-            ]
-          )
-        ),
-        child: new PageView.builder(
-            //controller: new PageController(viewportFraction: 0.8),
-            //Menghitung panjang nya dari array di atas
-            itemCount: gambar.length,
-            itemBuilder: (BuildContext context, int i){
-                return new Padding(
-                  child: new Material(
-                    borderRadius: new BorderRadius.circular(10.0),
-                    elevation: 8.0,
-                  child: Stack(
-                    //Stack Kayak Column
-                    //Biar Gambar bisa full screen
-                    fit: StackFit.passthrough,
-                    children: <Widget>[
-                      //Effect Hero nya di sini
-                      Hero(
-                        tag: gambar[i],
-                        child: Material(
-                          
-                          //Supaya Gambar Bisa di klik pakek inkwell
-                          child: InkWell(
-                            //ketika di klik
-                            //Dia akan berpindah
-                            onTap: () => Navigator.of(context).push(
-                              new MaterialPageRoute(
-                                builder: (BuildContext context) => DetailFood(),
-                              )
-                            ),
-                            child: Image.asset("assets/image/${gambar[i]}", fit: BoxFit.cover,),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ), padding: const EdgeInsets.symmetric(
-                  horizontal: 20.0,
-                  vertical: 10.0
-                ),
-                );
-    
-            },
-
-        ),
-      ),
-    );
-  }
+  _MyStatefulState createState() => _MyStatefulState();
 }
 
-class DetailFood extends StatelessWidget{
+class _MyStatefulState extends State<Food> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Ordering Food'),
-      ),
-      body: Stack(
+      body: ListView(
+        shrinkWrap: true,
         children: <Widget>[
-            
+          Column(
+            children: <Widget>[
+              Container(
+                height: 250.0,
+                width: double.infinity,
+                color: Colors.blue[300],
+                child: Align(
+                  alignment: Alignment.center,
+                child: Container(
+                padding: const EdgeInsets.all(8.0),
+                alignment: Alignment.center,
+                height: 60.0,
+                decoration: new BoxDecoration(
+                  color: Colors.blueGrey,
+                  border: new Border.all(
+                    color: Colors.black54,
+                    width: 4.0
+                  ),
+                  borderRadius: new BorderRadius.circular(12.0)
+                ),
+                child: new TextFormField(
+                  decoration: null,
+                ),
+              ),
+                )
+              ),
+              Column(
+                children: <Widget>[
+                  
+                ],
+              )
+            ],
+          )
         ],
       ),
     );
   }
-  
 }

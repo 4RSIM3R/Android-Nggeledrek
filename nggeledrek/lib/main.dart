@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'Daftar.dart';
 import 'dart:async';
+import 'Coba.dart';
 import 'Home.dart';
 void main() => runApp(MyApp());
 
@@ -29,11 +31,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   String _email;
   String _password;
-
+  //Cek Login Disini
+  bool _TelahLoginkah;
   @override
   void initState(){
     super.initState();
-    Timer(Duration(seconds: 3), () => { print("Ini Splash Screen") });
+   _TelahLoginkah =false;
+   FirebaseAuth.instance.currentUser().then((user) => user != null ? setState((){
+     _TelahLoginkah = true;
+   }) : null );
+    
   }
 
   @override
@@ -146,16 +153,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         new InkWell(
                           onTap: () => {
-                            // FirebaseAuth.instance.signInWithEmailAndPassword(
-                            //   email: _email,
-                            //   password: _password
-                            // ).then((FirebaseUser user){
-                            //   Navigator.push(context, MaterialPageRoute(
-                            //     builder: (context) => Home()
-                            //   ));
-                            // }).catchError((e){
-                            //   print(e);
-                            // })
+                           FirebaseAuth.instance.signInWithEmailAndPassword(
+                             email: _email,
+                             password: _password
+                           ).then(( FirebaseUser user){
+                              Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => Home()
+                              ));
+                           })
+                           .catchError((e){
+                             print("Ada Error : $e");
+                           })
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.width,

@@ -32,48 +32,108 @@ class Barang extends StatelessWidget{
         children: <Widget>[
           Column(
             children: <Widget>[
-              Container(
-                //Margin Ke semuanya
-                padding: EdgeInsets.all(5.0),
-                height: 250.0,
-                child:  Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Stack(
-                          children: <Widget>[
-                            Container(
-                              height: 230.0,
-                              //width nya 2/3 dari layar
-                              width: MediaQuery.of(context).size.width -  MediaQuery.of(context).size.width / 3,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5.0),
-                                image: DecorationImage(
-                                  image: AssetImage("assets/image/pulauMerah.jpg"),
-                                  fit: BoxFit.cover
+                    Padding(
+                        padding: EdgeInsets.all(0.0),
+                        child: Container(
+                          height: 200.0,
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 1,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12.0),
+                                        image: DecorationImage(
+                                            image: AssetImage("assets/image/pulauMerah.jpg"),
+                                            fit: BoxFit.cover
+                                        )
+                                    ),
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Container(
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        top: 155.0,
+                                        left: 15.0
+                                      ),
+                                      child: Text("Ini Nama Barang", style: TextStyle(color : Colors.white, fontSize: 16, fontWeight: FontWeight.bold ),),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      image: DecorationImage(
+                                          image: AssetImage("assets/image/pulauMerah.jpg"),
+                                          fit: BoxFit.cover
+                                      )
+                                    ),
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                  ),
                                 )
                               ),
-                            ),
-                            Positioned(
-                              //Tulisan Overlaw image nya
-                              left: 15.0,
-                              top: 130.0,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Text("Kopi Banyuwangi", style: TextStyle( fontSize: 30.0, color: Colors.white, fontWeight: FontWeight.bold ),),
-                                   Text("\$20", style: TextStyle( fontSize: 20.0, color: Colors.white, fontWeight: FontWeight.normal ),)
-                                ],
+                            ],
+                          ),
+                        ),
+                      ),
+                        Padding(
+                        padding: EdgeInsets.all(0.0),
+                        child: Container(
+                          height: 200.0,
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 1,
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(12.0),
+                                        image: DecorationImage(
+                                            image: AssetImage("assets/image/pulauMerah.jpg"),
+                                            fit: BoxFit.cover
+                                        )
+                                    ),
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                  ),
+                                ),
                               ),
-                            )
-                          ],
-                        )
-                      ],
-                    )
-                  ],
-                ),
-              )
+                              Expanded(
+                                flex: 1,
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Container(
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                        top: 155.0,
+                                        left: 15.0
+                                      ),
+                                      child: Text("Ini Nama Barang", style: TextStyle(color : Colors.white, fontSize: 16, fontWeight: FontWeight.bold ),),
+                                    ),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                      image: DecorationImage(
+                                          image: AssetImage("assets/image/pulauMerah.jpg"),
+                                          fit: BoxFit.cover
+                                      )
+                                    ),
+                                    height: double.infinity,
+                                    width: double.infinity,
+                                  ),
+                                )
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
             ],
           )
         ],

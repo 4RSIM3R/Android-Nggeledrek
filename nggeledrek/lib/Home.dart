@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'CustomShapeClipper.dart';
 import 'detail.dart';
+import 'Kecoh.dart';
+import 'List.dart';
 import 'Barang.dart';
 import 'blog.dart';
+import 'Food.dart';
+import 'Dirimu.dart';
+import 'Mbayar.dart';
 
 void main() => runApp(Home());
 const Color firstColor = Color(0xff0083b0);
@@ -67,38 +72,33 @@ class _MyHomePageState extends State<MyHomePage>{
               ),
               child: Column(
                 children: <Widget>[
-                  SizedBox(height:50.0),
+                  SizedBox(height:30.0),
                   Padding(
-                      padding: const EdgeInsets.all(13.0),
+                      padding: const EdgeInsets.all(12.0),
                       child: Row(
                         children: <Widget>[
-                          Icon(Icons.location_on, color: Colors.white,),
-                          SizedBox(width: 16.0,),
-                          PopupMenuButton(
-                            onSelected: (index){
-                              setState((){
-
-                              });
+                          GestureDetector(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(
+                                builder: (context) => Dirimu()
+                              ));
                             },
-                              child: Row(
-                                children: <Widget>[
-                                  Text("Blambangan", style: dropDownLabelStyle),
-                                  Icon(Icons.keyboard_arrow_down, color: Colors.white,)
-                                ],
+                            child: Container(
+                              width: 48,
+                              height: 48,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(24.0),
+                                image: DecorationImage(
+                                  image: AssetImage("assets/image/suku.jpg")
+                                )
                               ),
-                            itemBuilder: (BuildContext context)=> <PopupMenuItem<int>>[
-                              PopupMenuItem(
-                                  child: Text("Banyuwangi", style: dropDownMenuItemStyle,)
-                              )
-                            ],
-                          ),
-                          Spacer(),
-                          Icon(Icons.account_circle, color: Colors.white,)
+                            ),
+                          )
                         ],
                       ),
                   ),
-                  SizedBox(height: 50.0,),
-                  Text("Where do you\nwant to go ?", style: TextStyle(fontSize: 28.0, color: Colors.white), textAlign: TextAlign.center,),
+                  SizedBox(height: 30.0,),
+                  Text("Mau Berlibur\nKemana Kamu ?", style: TextStyle(fontSize: 28.0, color: Colors.white), textAlign: TextAlign.center,),
                   SizedBox(height:30.0),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 32.0),
@@ -126,16 +126,21 @@ class _MyHomePageState extends State<MyHomePage>{
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       InkWell(
-                          child: Choice(Icons.beach_access, "Pantai"),
+                          onTap: () => {
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => list()
+                            ))
+                          },
+                          child: Choice(Icons.crop_original, "Paket Wisata"),
                       ),
                       SizedBox(width: 20.0,),
                       InkWell(
                         onTap: () => {
                           Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => Barang()
+                            builder: (context) => Mbayar()
                           ))
                         },
-                        child: Choice(Icons.shopping_cart, "Oleh - Oleh",),
+                        child: Choice(Icons.payment, "Mbayar",),
 
                       ),
                     ],
@@ -203,8 +208,6 @@ var MyHomePageBottom = Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           Text("Most visited", style: dropDownMenuItemStyle,),
-          Spacer(),
-          Text("VIEW ALL(12)", style: viewAllStyle,)
         ],
       ),
     ),
@@ -238,8 +241,9 @@ class PopulerCard extends StatelessWidget{
           children: <Widget>[
             InkWell(
               onTap: () => {
+                //Kecoh
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => BlogApp()
+                  builder: (context) => Kecoh()
                 ))
               },
               child: Container(

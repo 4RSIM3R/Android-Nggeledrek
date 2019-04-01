@@ -1,0 +1,32 @@
+SafeArea(
+        child: Scaffold(
+          body: ListView(
+            children: <Widget>[
+              Column(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Text("Mau Kemana ?", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 32.0),),
+                        Spacer(),
+                        Container(
+                          width: 50.0,
+                          height: 50.0,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(45.0),
+                              image: DecorationImage(image: AssetImage("assets/image/suku.jpg"), fit: BoxFit.cover)
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20.0,),
+
+                ],
+              ),
+            ],
+          ),
+        )
+    );
