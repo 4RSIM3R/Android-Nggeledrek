@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'Home.dart';
 import 'Event.dart';
-import 'Gallery.dart';
 void main() => runApp(Dirimu());
 
 class Dirimu extends StatelessWidget {
@@ -17,7 +16,7 @@ class Dirimu extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return Scaffold(
-            appBar: AppBar(
+        appBar: AppBar(
         leading: IconButton(
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
@@ -61,7 +60,6 @@ class Dirimu extends StatelessWidget {
       ),
     );
   }
-  
 }
 
 class ListBarang extends StatelessWidget {
@@ -159,7 +157,7 @@ class ListBarang extends StatelessWidget {
                                   child: InkWell(
                                     onTap: (){
                                       Navigator.push(context, MaterialPageRoute(
-                                        builder: (context) => Gallery()
+                                        builder: (context) => Home()
                                       ));
                                     },
                                     child: Container(

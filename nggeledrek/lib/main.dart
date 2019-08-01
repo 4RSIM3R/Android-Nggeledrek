@@ -83,28 +83,26 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(
-                      top: 80.0,
+                      top: 95.0,
                       bottom: 15.0
                     ),
                     child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Image.asset("assets/image/suitcase.png", width: 150, height: 150,)
+                      Image.asset("assets/image/guide.png", width: 150, height: 150,)
                     ],
                   ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text('Ngge', 
+                      Text('Anter.in', 
                       style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.normal, color: Colors.blue[400]),),
-                      Text('ledrek', 
-                      style: TextStyle(fontSize: 40.0, fontWeight: FontWeight.normal, color: Colors.blue[200]),)
                     ],
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      vertical: 30.0,
+                      vertical: 20.0,
                       horizontal: 40.0
                     ),
                     child: Column(
@@ -192,7 +190,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             width: MediaQuery.of(context).size.width,
                             height: 50.0,
                             child: Center(
-                              child: Text('Belum Punya Akun ? ', style: TextStyle(fontSize: 20, color: Colors.black, ),),
+                              child: Text('Belum Punya Akun ? ', style: TextStyle(fontSize: 16, color: Colors.grey),),
                             ),
                           ),
                         ),

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'CustomShapeClipper.dart';
-import 'detail.dart';
-import 'Kecoh.dart';
 import 'List.dart';
-import 'Barang.dart';
 import 'blog.dart';
-import 'Food.dart';
 import 'Dirimu.dart';
 import 'Mbayar.dart';
+import 'Belanja.dart';
 
 void main() => runApp(Home());
 const Color firstColor = Color(0xff0083b0);
@@ -137,10 +134,10 @@ class _MyHomePageState extends State<MyHomePage>{
                       InkWell(
                         onTap: () => {
                           Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => Mbayar()
+                            builder: (context) => Belanja()
                           ))
                         },
-                        child: Choice(Icons.payment, "Mbayar",),
+                        child: Choice(Icons.shopping_basket, "Belanja",),
 
                       ),
                     ],
@@ -243,7 +240,7 @@ class PopulerCard extends StatelessWidget{
               onTap: () => {
                 //Kecoh
                 Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => Kecoh()
+                  builder: (context) => BlogApp()
                 ))
               },
               child: Container(

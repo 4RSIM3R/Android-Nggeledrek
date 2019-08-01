@@ -159,7 +159,7 @@ class  Promosi extends State<DetailApp> {
                                     )
                         ),
                       ),
-                        Padding(
+                      Padding(
                         padding: EdgeInsets.all(0.0),
                         child: Container(
                           height: 200.0,

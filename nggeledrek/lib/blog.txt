@@ -1,0 +1,101 @@
+Scaffold(
+      backgroundColor: Colors.transparent,
+      resizeToAvoidBottomPadding: false,
+      body: Stack(
+        children: <Widget>[
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            child: Image.network(
+              "https://www.1dmcworld.com/asia-pacific/wp-content/uploads/sites/2/2016/11/indonesia-dmc-panorama-destination.jpg",
+              fit: BoxFit.cover,
+            ),
+          ),
+          Positioned(
+            left: 20.0,
+            top: 30.0,
+            child: Container(
+                width: 50.0,
+                height: 50.0,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(18.0)
+                ),
+                child: GestureDetector(
+                  onTap: (){
+                    Route route = MaterialPageRoute(builder: (context) => Home());
+                    Navigator.push(context, route);
+                  },
+                    child: Icon(Icons.arrow_back_ios,color: Colors.white,)
+                )
+            ),
+          ),
+          Positioned(
+              left: 0.0,
+              bottom: 0.0,
+              width: 480,
+              height: 500.0,
+              child: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                        colors: [Colors.black, Color(0x0000000)]
+                    )
+                ),
+              )
+          ),
+          Positioned(
+            top: 320.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: 20.0,),
+                    Icon(Icons.calendar_today, color: Colors.white.withOpacity(0.7), size: 20,),
+                    SizedBox(width: 7.0,),
+                    Text("10 DAYS", style: TextStyle(color: Colors.white.withOpacity(0.7)),),
+                    SizedBox(width: 30.0,),
+                    Icon(Icons.wb_cloudy, color: Colors.white.withOpacity(0.6),),
+                    SizedBox(width: 10.0,),
+                    Text("728 KM", style: TextStyle(color: Colors.white.withOpacity(0.7)),)
+                  ],
+                ),
+                SizedBox(height: 30.0,),
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: 20.0,),
+                    Text("Pantai Merah,\nBanyuwangi", style: TextStyle(color: Colors.white, fontSize: 28.0, fontFamily: "Varela"),),
+                  ],
+                ),
+                SizedBox(height: 30.0,),
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: 20.0,),
+                    Text("Nama Pulau Merah sendiri merujuk pada bukit\nkecil ditengah laut yang memiliki\ntanah berwarna merah", style: TextStyle(color: Colors.white70, fontSize: 18.0),),
+                  ],
+                ),
+                SizedBox(height: 30.0,),
+                Row(
+                  children: <Widget>[
+                    SizedBox(width: 20.0,),
+                    SmoothStarRating(
+                      color: Colors.yellow.withOpacity(0.8),
+                      starCount: 5,
+                      rating: 4,
+                      size: 20.0,
+                      borderColor: Colors.yellow.withOpacity(0.8),
+                    ),
+                    SizedBox(width: 10.0,),
+                    Text("4.83", style: TextStyle(color: Colors.white.withOpacity(0.8), fontSize: 16.0),),
+                    Text("(1189)", style: TextStyle(color: Colors.white.withOpacity(0.6)),)
+                  ],
+                ),
+                SizedBox(height: 20.0,),
+              ],
+            ),
+          )
+        ],
+      ),
+    )

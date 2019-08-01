@@ -1,0 +1,4 @@
+Text("Tour De Ijen", style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.w500),)
+                    Icon(Icons.timer, size: 28, color: Colors.grey,),
+                    SizedBox(width: 5.0,),
+                    Text("2 Hari 2 Malam", style: TextStyle(fontSize: 18, color: Colors.grey, ),)
